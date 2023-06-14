@@ -1,6 +1,7 @@
 from threading import Thread
 import tkinter as tk
 import subprocess
+import shlex
 import getpass
 import socket
 import os
@@ -108,7 +109,7 @@ class Terminal(tk.Text):
         position = self.index("insert")
         line, column = map(int, position.split("."))
         last_line, last_column = map(int, self.index("end-2c").split("."))
-        command = self.get(f"{line}.{self.query_len}", f"{line}.{self.query_len} lineend - 1 char").split(" ")
+        command = shlex.split(self.get(f"{line}.{self.query_len}", f"{line}.{self.query_len} lineend - 1 char"))
         if len(command) >= 1 and not command[0] == "":
             try:
                 process = subprocess.Popen(command, cwd=self.path, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, bufsize=1, universal_newlines=True)
