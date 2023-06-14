@@ -86,11 +86,10 @@ class Terminal(tk.Text):
         last_line, last_column = map(int, self.index("end-2c").split("."))
         if column > int(self.index("insert lineend - 1 char").split(".")[1]):
             self.mark_set("insert", "insert lineend - 1 char")
-        elif column < self.query_len:
+        if column < self.query_len:
             self.mark_set("insert", f"{line}.{self.query_len}")
-        elif line < last_line:
+        if line < last_line:
             self.mark_set("insert", "end-2c")
-        self.see("insert")
         self.tag_add("cursor", "insert", "insert + 1 char")
         self.after(1, self.focus)
 
@@ -148,6 +147,7 @@ class Terminal(tk.Text):
         self.insert("end-1c", self.path)
         self.insert("end-1c", " $  ")
         self.mark_set("insert", "end-2c")
+        self.see("insert")
         self.query_len = len(message)
     
     def update_output(self, output):
