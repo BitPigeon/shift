@@ -30,3 +30,8 @@ make install
 ```sh
 sudo apt install fonts-liberation
 ```
+## Running
+
+```sh
+make
+```
