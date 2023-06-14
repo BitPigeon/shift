@@ -7,6 +7,7 @@ A terminal application based upon the Linux shell.
 ```sh
 git clone https://github.com/BitPigeon/shift
 cd shift
+```
 
 ### Install Packages and Run
 
