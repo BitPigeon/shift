@@ -1,6 +1,6 @@
 <h1 align="center">shift</h1>
 
-<p align="center">A terminal application based upon the Linux shell.</p>
+<p align="center">A terminal application based upon the Linux shell built entirely in python.</p>
 
 <p align="center">
     <img src="https://img.shields.io/github/contributors/BitPigeon/shift">
