@@ -49,8 +49,11 @@ class Terminal(tk.Text):
         self.focus()
 
     def cancel(self, event):
-        if self.output_thread and self.output_thread.is_alive():
-            self.output_thread.stopped = True
+        try:
+            if self.output_thread and self.output_thread.is_alive():
+                self.output_thread.stopped = True
+        except:
+            pass
     
     def init(self):
         self.query_len = 0
